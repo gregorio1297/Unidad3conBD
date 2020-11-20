@@ -281,6 +281,9 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Cine\Index.cshtml" />
     <Content Include="Views\Cine\Delete.cshtml" />
+    <Content Include="Views\Cine\Edit.cshtml" />
+    <Content Include="Views\Cine\Details.cshtml" />
+    <Content Include="Views\Cine\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

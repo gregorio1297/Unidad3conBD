@@ -1,17 +1,12 @@
 ﻿@model PracticaBD.Models.Cine
 
 @{
-    ViewBag.Title = "Eliminar Horario";
+    ViewBag.Title = "Detalles Horario";
 }
-
+<br />
+<h2>Detalles Horario</h2>
 <br />
 
-<h2>Eliminar Horario</h2>
-
-<br />
-
-<h3>Esta seguro de eliminar este horario?</h3>
-<br />
 <div>
     <h4>Horario</h4>
     <hr />
@@ -33,13 +28,8 @@
         </dd>
 
     </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Regresar", "Index")
-        </div>
-    }
 </div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

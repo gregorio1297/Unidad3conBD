@@ -21,7 +21,8 @@ namespace PracticaBD.Controllers
         // GET: Cine/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var ho = db.Cines.Find(id);
+            return View(ho);
         }
 
         // GET: Cine/Create
@@ -32,12 +33,13 @@ namespace PracticaBD.Controllers
 
         // POST: Cine/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Cine c)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                db.Cines.Add(c);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
@@ -49,15 +51,21 @@ namespace PracticaBD.Controllers
         // GET: Cine/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var horario = db.Cines.Find(id);
+            return View(horario);
         }
 
         // POST: Cine/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Cine c)
         {
             try
             {
+                var hor = db.Cines.Find(id);
+
+                
+                hor.Hora = c.Hora;
+                db.SaveChanges();
                 // TODO: Add update logic here
 
                 return RedirectToAction("Index");
@@ -77,11 +85,14 @@ namespace PracticaBD.Controllers
 
         // POST: Cine/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, Cine c)
         {
             try
             {
                 // TODO: Add delete logic here
+                var horar = db.Cines.Find(id);
+                db.Cines.Remove(horar);
+                db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
